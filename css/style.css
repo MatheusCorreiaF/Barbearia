@@ -1,0 +1,19 @@
+.pane-body{
+    padding: 1rem;
+}
+.form-nome{
+    width: 500px;
+    display: inline-block;
+}
+.form-telefone{
+    width: 239px;
+    display: inline-block;
+}
+.form-endereco{
+    width: 350px;
+    display: inline-block;
+}
+.form-bairro{
+    width: 150px;
+    display: inline-block;
+}
