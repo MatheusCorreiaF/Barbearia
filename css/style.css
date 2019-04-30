@@ -2,18 +2,34 @@
     padding: 1rem;
 }
 .form-nome{
-    width: 500px;
+    width: 398px;
     display: inline-block;
 }
-.form-telefone{
-    width: 239px;
+.form-cpf{
+    width: 200px;
     display: inline-block;
 }
 .form-endereco{
-    width: 350px;
+    width: 370px;
+    display: inline-block;
+}
+.form-telefone{
+    width: 144px;
     display: inline-block;
 }
 .form-bairro{
-    width: 150px;
+    width: 184px;
+    display: inline-block;
+}
+.form-numero{
+    width: 80px;
+    display: inline-block;
+}
+.select-estado{
+    width: 140px;
+    display: inline-block;
+}
+.form-cidade{
+    width: 200px;
     display: inline-block;
 }
