@@ -29,17 +29,17 @@
               <tr>
                 <th>Nome</th>
                 <th>Telefone</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="cliente in clientes">
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.telefone}}</td>
+                <td><button class="btn btn-primary" type="button" @click="editarCliente(cliente)">Editar</button></td>
               </tr>
             </tbody>
           </table>
-
-
         </div>
       </div>
     </div>
@@ -47,49 +47,125 @@
       <h1 class="title">Desenvolvido por <i>MCF Softwares®<i></h1>
     </footer>
   </div>
-  <script>
-    // You can also require other files to run in this process
-    //require('./renderer.js')
-    var read = require('read-file-utf8')
-    var loki = require('lokijs');// instanciando o Banco de dados
-    var db = new loki('db.json');//Criando o banco de dados 
-    var data = read(__dirname + '/db.json');
-    db.loadJSON(data);
-    //console.log(db);
-
-    window.Vue = require('vue');
-    var clientes = db.getCollection('clientes');
-
-    if (!clientes) {
-      //console.log('Tabela criada');
-      clientes = db.addCollection('clientes');
-    } else {
-      //console.log("Tabela existe");
-    }
-    //console.log(db);
-
-    /*new Vue({
-      el: 'body',
-      data: {
-        clientes: []
-      },
-      mounted: function () {
-        this.clientes = clientes.data;
-        console.log(this.clientes);
-      }
-    })*/
-
-    new Vue({
-      el: 'body',
-      data: {
-        clientes: []
-      },
-      ready: function () {
-        this.clientes = clientes.data;
-        console.log(this.clientes);
-      }
-    })
-  </script>
+          <div id="modal" v-if="openModal">
+    <!--Modal para editar Cliente-->
+    <div class="wrap">
+      <form action="" class="pane-body" id="formEditarCliente">
+        <h3>Editar Cliente</h3>
+        <div class="form-group form-nome">
+          <input type="text" id="nome" class="form-control" v-model="cliente.nome" placeholder="Nome" />
+        </div>
+        <div class="form-group form-dataNasc">
+          <input type="date" id="dataNasc" class="form-control" v-model="cliente.dataNasc" placeholder="DataNasc">
+        </div>
+        <div class="form-group form-cpf">
+          <input type="text" id="cpf" class="form-control" v-model="cliente.cpf" placeholder="CPF">
+        </div>
+        <div class="form-group form-telefone">
+          <input type="text" id="telefone" class="form-control" v-model="cliente.telefone" placeholder="Telefone">
+        </div>
+        <div class="form-group form-endereco">
+          <input type="text" id="endereco" class="form-control" v-model="cliente.endereco" placeholder="Rua, Quadra...">
+        </div>
+        <div class="form-group form-numero">
+          <input type="number" id="numero" class="form-control" v-model="cliente.numero" placeholder="N°">
+        </div>
+        <div class="form-group form-bairro">
+          <input type="text" id="bairro" class="form-control" v-model="cliente.bairro" placeholder="Bairro/Setor">
+        </div>
+        <div class="form-group form-cidade">
+          <input type="text" id="cidade" class="form-control" v-model="cliente.cidade" placeholder="Cidade">
+        </div>
+        <select name="estados-brasil" id="estado" class="form-control select-estado" v-model="cliente.estado">
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MG">MG</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="PR">PR</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="RS">RS</option>
+          <option value="SC">SC</option>
+          <option value="SE">SE</option>
+          <option value="SP">SP</option>
+          <option value="TO">TO</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" id="cancelar" class="btn btn-form btn-negative" @click="openModal=false">Cancelar</button>
+        <button type="button" id="salvar" class="btn btn-form btn-primary">Salvar</button>
+      </form>
+    </div>
+  </div>
+          
 </body>
+<script>
+  // You can also require other files to run in this process
+  //require('./renderer.js')
+  var read = require('read-file-utf8')
+  var loki = require('lokijs');// instanciando o Banco de dados
+  var db = new loki('db.json');//Criando o banco de dados 
+  var data = read(__dirname + '/db.json');
+  db.loadJSON(data);
+  //console.log(db);
+
+  window.Vue = require('vue');
+  var clientes = db.getCollection('clientes');
+
+  if (!clientes) {
+    //console.log('Tabela criada');
+    clientes = db.addCollection('clientes');
+  } else {
+    //console.log("Tabela existe");
+  }
+  //console.log(db);
+
+  new Vue({
+    el: 'body',/*onde iremos trabalhar com o Vue*/
+    data: {/*local para declarar variáveis*/
+      clientes: [],
+      cliente: {
+        nome: '',
+        dataNasc: '',
+        cpf: '',
+        telefone: '',
+        endereco: '',
+        numero: '',
+        bairro: '',
+        cidade: '',
+        estado: ''
+      },
+      openModal: false
+    },
+    ready: function () {
+      this.clientes = clientes.data;
+      console.log(this.clientes);
+    },
+    methods: {/*local para declarar métodos*/
+      editarCliente: function (cliente) {
+        this.openModal = true;
+        this.cliente = cliente;
+      },
+      qwe: function (data) {
+        console.log(data);
+      }
+    },
+  })
+</script>
 
 </html>

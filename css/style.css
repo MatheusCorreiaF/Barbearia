@@ -1,35 +1,94 @@
 .pane-body{
     padding: 1rem;
 }
-.form-nome{
-    width: 398px;
+
+#formCadastrarCliente .form-nome{
+    width: 280px;
     display: inline-block;
 }
-.form-cpf{
-    width: 200px;
-    display: inline-block;
-}
-.form-endereco{
-    width: 370px;
-    display: inline-block;
-}
-.form-telefone{
+#formCadastrarCliente .form-dataNasc{
     width: 144px;
     display: inline-block;
 }
-.form-bairro{
+#formCadastrarCliente .form-cpf{
+    width: 170px;
+    display: inline-block;
+}
+#formCadastrarCliente .form-endereco{
+    width: 370px;
+    display: inline-block;
+}
+#formCadastrarCliente .form-telefone{
+    width: 144px;
+    display: inline-block;
+}
+#formCadastrarCliente .form-bairro{
     width: 184px;
     display: inline-block;
 }
-.form-numero{
+#formCadastrarCliente .form-numero{
     width: 80px;
     display: inline-block;
 }
-.select-estado{
+#formCadastrarCliente .select-estado{
     width: 140px;
     display: inline-block;
 }
-.form-cidade{
+#formCadastrarCliente .form-cidade{
     width: 200px;
+    display: inline-block;
+}
+
+#modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#modal .wrap{
+    width: 60%;
+    min-height: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+    background: #fff;
+}
+
+#formEditarCliente .form-nome{
+    width: 444px;
+    display: inline-block;
+}
+#formEditarCliente .form-cpf{
+    width: 145px;
+    display: inline-block;
+}
+#formEditarCliente .form-endereco{
+    width: 358px;
+    display: inline-block;
+}
+#formEditarCliente .form-telefone{
+    width: 148px;
+    display: inline-block;
+}
+#formEditarCliente .form-bairro{
+    width: 192px;
+    display: inline-block;
+}
+#formEditarCliente .form-numero{
+    width: 81px;
+    display: inline-block;
+}
+#formEditarCliente .select-estado{
+    width: 70px;
+    display: inline-block;
+}
+#formEditarCliente .form-cidade{
+    width: 173px;
+    display: inline-block;
+}
+#formEditarCliente .form-dataNasc{
+    width: 144px;
     display: inline-block;
 }

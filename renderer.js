@@ -13,21 +13,23 @@ if (!clientes)
         console.log("Tabela existe");
     }
 clientes.insert([{
-    nome: 'Matheus Correia',
+    nome: 'Andrea Pirlo',
+    dataNasc: '1981-10-17',
     cpf: '123456789-10',
-    telefone: '64999832163',
-    endereco: 'Rua 06 Qd03 Lt23',
+    telefone: '64999531673',
+    endereco: 'Rua 06 Qd13 Lt23',
     numero: '23',
-    bairro: 'Hene Saud',
+    bairro: 'Nadin Saud',
     cidade: 'Pires do Rio',
     estado: 'GO'
     },{
-        nome: 'Ivna Corrêa',
+        nome: 'Karin Benzema',
+        dataNasc: '1984-05-27',
         cpf: '123456789-10',
         telefone: '64998877665',
-        endereco: 'Rua Agusto M. de Godoy',
+        endereco: 'Rua Rui Barbosa',
         numero: '23',
-        bairro: 'Bairro Colegial',
+        bairro: 'Bairro Cramberry',
         cidade: 'Pires do Rio',
         estado: 'GO'
         }]
