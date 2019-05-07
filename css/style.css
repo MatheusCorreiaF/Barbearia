@@ -92,3 +92,9 @@
     width: 144px;
     display: inline-block;
 }
+
+.menu-bar
+{ 
+text-decoration:none;
+color: rgba(0, 0, 0, 0.85); 
+} 

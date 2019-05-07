@@ -20,28 +20,33 @@
     </header>
     <div class="window-content">
       <div class="pane-group">
-        <div class="pane-sm sidebar">...</div>
-        <!--Barra Lateral-->
+        <div class="pane-sm sidebar">
+          <!--Barra Lateral-->
+          <nav class="nav-group">
+
+            <a class="" style="font-size: 20pt" href="index.html">
+              <span class="icon icon-home" style="font-size: 20pt;color: rgba(0, 0, 0, 0.85);"></span>
+              Home
+            </a>
+
+            <h5 class="nav-group-title">Clientes</h5>
+
+            <a class="nav-group-item menu-bar" href="lista-clientes.html">
+              <span class="icon icon-home"></span>
+              Listar
+            </a>
+            <a class="nav-group-item menu-bar" href="cadastro-cliente.html">
+              <span class="icon icon-home"></span>
+              Cadastrar
+            </a>
+
+
+          </nav>
+        </div>
+
         <div class="pane">
           <!--Corpo da Aplicação-->
           <a href="cadastro-cliente.html" class="btn btn-primary">CadastroCliente</a>
-          <table class="table-striped">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Fone</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="cliente in clientes">
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td><button class="btn btn-primary" type="button"
-                    @click="abrirModalEditarCliente(cliente)">Editar</button></td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
@@ -107,9 +112,10 @@
           <option value="SP">SP</option>
           <option value="TO">TO</option>
         </select>
-        <br/><br/>
+        <br /><br />
         <button type="button" id="cancelar" class="btn btn-form btn-negative" @click="openModal=false">Cancelar</button>
-        <button type="button" id="salvar" class="btn btn-form btn-primary" @click="salvarEdicaoCliente()">Salvar</button>
+        <button type="button" id="salvar" class="btn btn-form btn-primary"
+          @click="salvarEdicaoCliente()">Salvar</button>
       </form>
     </div>
   </div>
@@ -149,21 +155,18 @@
       },
       openModal: false
     },
-    ready: function ()/*função executada assim que carrega página*/
-    {
+    ready: function ()/*função executada assim que carrega página*/ {
       this.clientes = clientes.data;/*carregando lista de clientes dop banco de dados*/
       console.log(this.clientes);
     },
     methods:/*local para declarar métodos*/
     {
-      abrirModalEditarCliente: function (clienteEditing)
-      {
+      abrirModalEditarCliente: function (clienteEditing) {
         this.openModal = true;
         this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
       },
 
-      salvarEdicaoCliente: function ()
-      {
+      salvarEdicaoCliente: function () {
         clientes.update(this.cliente);
         db.save();
         this.openModal = false;
