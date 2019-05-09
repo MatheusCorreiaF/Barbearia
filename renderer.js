@@ -63,13 +63,18 @@ ready(function ()/*Será executada qndo a página estiver carregada*/ {
             cidade: document.querySelector('#cidade').value,
             estado: document.querySelector('#estado').value
         };
-        console.log(cliente);
+        if (cliente.nome == '') {
+            alert("Informe o Nome");
+        }
+        else{
+            console.log(cliente);
 
-        clientes.insert(cliente);
-        console.log("Inserido");
+            clientes.insert(cliente);
+            console.log("Inserido");
 
-        db.save();
-        console.log("Salvo");
+            db.save();
+            console.log("Salvo");
+            }
     })
 })
 

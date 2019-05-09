@@ -20,11 +20,30 @@
     </header>
     <div class="window-content">
       <div class="pane-group">
-        <div class="pane-sm sidebar">...</div>
+
         <!--Barra Lateral-->
+        <div class="pane-sm sidebar">
+            <nav class="nav-group">
+              <a id="home" class="menu-bar" href="index.html">
+                <span class="icon icon-home"></span>
+                Home
+              </a>
+  
+              <h5 class="nav-group-title">Clientes</h5>
+  
+              <a class="nav-group-item menu-bar" href="lista-clientes.html">
+                <span class="icon icon-users"></span>
+                Listar
+              </a>
+              <a class="nav-group-item menu-bar active">
+                <span class="icon icon-user-add"></span>
+                Cadastrar
+              </a>
+            </nav>
+          </div>
+        
+        <!--Corpo da Aplicação-->
         <div class="pane">
-          <!--Corpo da Aplicação-->
-          <a href="index.html" class="btn btn-primary">Index</a>
           <form action="" class="pane-body" id="formCadastrarCliente">
             <h3>Cadastro de Cliente</h3>
             <div class="form-group form-nome">
@@ -82,7 +101,7 @@
               <option value="TO">TO</option>
             </select>
             <br/><br/>
-            <button type="button" id="cancelar" class="btn btn-form btn-default">Cancelar</button>
+            <a href="index.html"><button type="button" id="cancelar" class="btn btn-form btn-negative">Cancelar</button></a>
             <button type="button" id="salvar" class="btn btn-form btn-primary">Salvar</button>
           </form>
 

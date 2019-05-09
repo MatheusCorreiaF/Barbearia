@@ -97,4 +97,15 @@
 { 
 text-decoration:none;
 color: rgba(0, 0, 0, 0.85); 
-} 
+}
+
+#home{
+    font-size: 20pt;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#formCadastrarCliente h3{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 0px;
+}

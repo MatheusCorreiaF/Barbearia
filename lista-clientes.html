@@ -20,11 +20,30 @@
     </header>
     <div class="window-content">
       <div class="pane-group">
-        <div class="pane-sm sidebar">...</div>
+
         <!--Barra Lateral-->
+        <div class="pane-sm sidebar">
+          <nav class="nav-group">
+            <a id="home" class="menu-bar" href="index.html">
+              <span class="icon icon-home"></span>
+              Home
+            </a>
+
+            <h5 class="nav-group-title">Clientes</h5>
+
+            <a class="nav-group-item menu-bar active">
+              <span class="icon icon-users"></span>
+              Listar
+            </a>
+            <a class="nav-group-item menu-bar" href="cadastro-cliente.html">
+              <span class="icon icon-user-add"></span>
+              Cadastrar
+            </a>
+          </nav>
+        </div>
+
+        <!--Corpo da Aplicação-->
         <div class="pane">
-          <!--Corpo da Aplicação-->
-          <a href="cadastro-cliente.html" class="btn btn-primary">CadastroCliente</a>
           <table class="table-striped">
             <thead>
               <tr>
@@ -37,20 +56,25 @@
               <tr v-for="cliente in clientes">
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.telefone}}</td>
-                <td><button class="btn btn-primary" type="button"
-                    @click="abrirModalEditarCliente(cliente)">Editar</button></td>
+                <td style="width: 75px"><button class="btn btn-primary" type="button"
+                    @click="abrirModalEditarCliente(cliente)">Editar</button>
+                    <button class="btn btn-negative" type="button"
+                    @click="excluirCliente(cliente)">Excluir</button></td>
               </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
+
     <footer class="toolbar toolbar-footer">
       <h1 class="title">Desenvolvido por <i>MCF Softwares®<i></h1>
     </footer>
+
   </div>
+  <!--Modal para editar Cliente-->
   <div id="modal" v-if="openModal">
-    <!--Modal para editar Cliente-->
     <div class="wrap">
       <form action="" class="pane-body" id="formEditarCliente">
         <h3>Editar Cliente</h3>
@@ -107,9 +131,10 @@
           <option value="SP">SP</option>
           <option value="TO">TO</option>
         </select>
-        <br/><br/>
+        <br /><br />
         <button type="button" id="cancelar" class="btn btn-form btn-negative" @click="openModal=false">Cancelar</button>
-        <button type="button" id="salvar" class="btn btn-form btn-primary" @click="salvarEdicaoCliente()">Salvar</button>
+        <button type="button" id="salvar" class="btn btn-form btn-primary"
+          @click="salvarEdicaoCliente()">Salvar</button>
       </form>
     </div>
   </div>
@@ -149,26 +174,26 @@
       },
       openModal: false
     },
-    ready: function ()/*função executada assim que carrega página*/
-    {
-      this.clientes = clientes.data;/*carregando lista de clientes dop banco de dados*/
+    ready: function ()/*função executada assim que carrega página*/ {
+      this.clientes = clientes.data;/*carregando lista de clientes do banco de dados*/
       console.log(this.clientes);
     },
     methods:/*local para declarar métodos*/
     {
-      abrirModalEditarCliente: function (clienteEditing)
-      {
+      abrirModalEditarCliente: function (clienteEditing) {
         this.openModal = true;
         this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
       },
 
-      salvarEdicaoCliente: function ()
-      {
+      salvarEdicaoCliente: function () {
         clientes.update(this.cliente);
         db.save();
         this.openModal = false;
+      },
+      excluirCliente: function(clienteRemoving){
+        clientes.remove(clienteRemoving);
+        db.save();
       }
-
     },
   })
 </script>
