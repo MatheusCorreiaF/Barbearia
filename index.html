@@ -11,6 +11,10 @@
 
   <!-- Electron Javascript -->
   <!--script src="app.js" charset="utf-8"></script-->
+  <script>window.$ = window.jQuery = require('jquery');</script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -24,26 +28,45 @@
         <!--Barra Lateral-->
         <div class="pane-sm sidebar">
           <nav class="nav-group">
-            <a id="home" class="menu-bar active">
-              <span class="icon icon-home"></span>
-              Home
-            </a>
 
+            <a id="home" class="active"><span class="icon icon-home"></span>Home</a>
             <h5 class="nav-group-title">Clientes</h5>
-
-            <a class="nav-group-item menu-bar" href="lista-clientes.html">
-              <span class="icon icon-users"></span>
-              Listar
-            </a>
-            <a class="nav-group-item menu-bar" href="cadastro-cliente.html">
-              <span class="icon icon-user-add"></span>
-              Cadastrar
-            </a>
+            <a class="nav-group-item" href="lista-clientes.html"> <span class="icon icon-users"></span>Listar</a>
+            <a class="nav-group-item" href="cadastro-cliente.html"> <span class="icon icon-user-add"></span>Cadastrar</a>
+            
           </nav>
         </div>
 
         <!--Corpo da Aplicação-->
         <div class="pane">
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>

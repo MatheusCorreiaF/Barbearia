@@ -1,3 +1,5 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
 .pane-body{
     padding: 1rem;
 }
@@ -7,7 +9,7 @@
     display: inline-block;
 }
 #formCadastrarCliente .form-dataNasc{
-    width: 144px;
+    width: 174px;
     display: inline-block;
 }
 #formCadastrarCliente .form-cpf{
@@ -15,15 +17,15 @@
     display: inline-block;
 }
 #formCadastrarCliente .form-endereco{
-    width: 370px;
+    width: 380px;
     display: inline-block;
 }
 #formCadastrarCliente .form-telefone{
-    width: 144px;
+    width: 164px;
     display: inline-block;
 }
 #formCadastrarCliente .form-bairro{
-    width: 184px;
+    width: 220px;
     display: inline-block;
 }
 #formCadastrarCliente .form-numero{
@@ -35,7 +37,7 @@
     display: inline-block;
 }
 #formCadastrarCliente .form-cidade{
-    width: 200px;
+    width: 220px;
     display: inline-block;
 }
 
@@ -95,8 +97,7 @@
 
 .menu-bar
 { 
-text-decoration:none;
-color: rgba(0, 0, 0, 0.85); 
+text-decoration: none; 
 }
 
 #home{

@@ -24,18 +24,18 @@
         <!--Barra Lateral-->
         <div class="pane-sm sidebar">
           <nav class="nav-group">
-            <a id="home" class="menu-bar" href="index.html">
+            <a id="home" href="index.html">
               <span class="icon icon-home"></span>
               Home
             </a>
 
             <h5 class="nav-group-title">Clientes</h5>
 
-            <a class="nav-group-item menu-bar active">
+            <a class="nav-group-item active">
               <span class="icon icon-users"></span>
               Listar
             </a>
-            <a class="nav-group-item menu-bar" href="cadastro-cliente.html">
+            <a class="nav-group-item" href="cadastro-cliente.html">
               <span class="icon icon-user-add"></span>
               Cadastrar
             </a>
@@ -44,7 +44,7 @@
 
         <!--Corpo da Aplicação-->
         <div class="pane">
-          <table class="table-striped">
+          <table class="table table-striped table-sm table-responsive">
             <thead>
               <tr>
                 <th>Nome</th>
@@ -56,9 +56,9 @@
               <tr v-for="cliente in clientes">
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.telefone}}</td>
-                <td style="width: 75px"><button class="btn btn-primary" type="button"
+                <td style="width: 75px"><button class="btn btn-primary btn-sm" type="button"
                     @click="abrirModalEditarCliente(cliente)">Editar</button>
-                    <button class="btn btn-negative" type="button"
+                    <button class="btn btn-danger btn-sm" type="button"
                     @click="excluirCliente(cliente)">Excluir</button></td>
               </tr>
             </tbody>
