@@ -11,6 +11,10 @@
 
   <!-- Electron Javascript -->
   <!--script src="app.js" charset="utf-8"></script-->
+  <script>window.$ = window.jQuery = require('jquery');</script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -44,7 +48,7 @@
 
         <!--Corpo da Aplicação-->
         <div class="pane">
-          <table class="table table-striped table-sm table-responsive">
+          <table class="table table-striped table-sm">
             <thead>
               <tr>
                 <th>Nome</th>
@@ -54,15 +58,16 @@
             </thead>
             <tbody>
               <tr v-for="cliente in clientes">
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td style="width: 75px"><button class="btn btn-primary btn-sm" type="button"
-                    @click="abrirModalEditarCliente(cliente)">Editar</button>
-                    <button class="btn btn-danger btn-sm" type="button"
-                    @click="excluirCliente(cliente)">Excluir</button></td>
+                <td id="colNome">{{cliente.nome}}</td>
+                <td id="colTelefone">{{cliente.telefone}}</td>
+                <td id="colBotoes"><button class="btn btn-primary btn-sm" type="button"
+                    @click="abrirModalEditarCliente(cliente)">Detalhes</button>
+                  <button class="btn btn-danger btn-sm" type="button" @click="excluirCliente(cliente)">Excluir</button>
+                </td>
               </tr>
             </tbody>
           </table>
+
         </div>
 
       </div>
@@ -142,60 +147,7 @@
 </body>
 <script>
   // You can also require other files to run in this process
-  //require('./renderer.js')
-  var read = require('read-file-utf8')
-  var loki = require('lokijs');// instanciando o Banco de dados
-  var db = new loki('db.json');//Criando o banco de dados 
-  var data = read(__dirname + '/db.json');
-  db.loadJSON(data);
-  //console.log(db);
-
-  window.Vue = require('vue');
-
-  var clientes = db.getCollection('clientes');
-  if (!clientes) {
-    clientes = db.addCollection('clientes');
-  }
-
-  new Vue({
-    el: 'body',/*onde iremos trabalhar com o Vue*/
-    data: {/*local para declarar variáveis*/
-      clientes: [],/*array para receber clientes do banco de dados*/
-      cliente: {/*objeto Cliente com valores default*/
-        nome: '',
-        dataNasc: '',
-        cpf: '',
-        telefone: '',
-        endereco: '',
-        numero: '',
-        bairro: '',
-        cidade: '',
-        estado: ''
-      },
-      openModal: false
-    },
-    ready: function ()/*função executada assim que carrega página*/ {
-      this.clientes = clientes.data;/*carregando lista de clientes do banco de dados*/
-      console.log(this.clientes);
-    },
-    methods:/*local para declarar métodos*/
-    {
-      abrirModalEditarCliente: function (clienteEditing) {
-        this.openModal = true;
-        this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
-      },
-
-      salvarEdicaoCliente: function () {
-        clientes.update(this.cliente);
-        db.save();
-        this.openModal = false;
-      },
-      excluirCliente: function(clienteRemoving){
-        clientes.remove(clienteRemoving);
-        db.save();
-      }
-    },
-  })
+  require('./lista-clientes.js')
 </script>
 
 </html>

@@ -110,3 +110,37 @@ text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
     margin-top: 0px;
 }
+table th{
+    font-size: 15pt;
+}
+table td{
+    font-size: 12pt;
+}
+#colNome{
+    width: 52%;
+}
+#colTelefone{
+    width: 28%;
+}
+#colBotoes{
+    width: 20%;
+}
+
+.circulo-erro{
+    font-size: 20pt;
+    color: red; 
+}
+.check-sucesso{
+    font-size: 20pt;
+    color: green; 
+}
+table tbody,
+table thead {
+  display: block;
+}
+
+/* Agora vamos definir o elemento tbody, para overflow: auto. Ativando assim as barras de rolagem. */
+table tbody {
+  overflow: auto;
+  height: 300px;
+}
