@@ -101,34 +101,27 @@ new Vue({
     methods:
     {
         salvarCliente: function () {
-            if (this.cliente.nome == '') {
+            var cli = {/*objeto Cliente com valores default*/
+                nome: this.cliente.nome,
+                dataNasc: this.cliente.dataNasc,
+                cpf: this.cliente.cpf,
+                telefone: this.cliente.telefone,
+                endereco: this.cliente.endereco,
+                numero: this.cliente.numero,
+                bairro: this.cliente.bairro,
+                cidade: this.cliente.cidade,
+                estado: this.cliente.estado
+            }
+            if (cli.nome == '') {
                 this.exibeModalClienteSalvo = false;
                 this.exibeModalClienteVazio = true;
             }
             else {
-                console.log(this.cliente);
-
+                console.log(cli)
                 this.exibeModalClienteVazio = false;
-                db.loadJSON(data);
-                clientes.insert(this.cliente);
-                console.log("Inserido");
-                console.log(this.cliente);
-
-
+                clientes.insert(cli);
                 db.save();
-                console.log("Salvo");
-                // this.cliente.nome = '';
-                // this.cliente.dataNasc = '';
-                // this.cliente.cpf = '';
-                // this.cliente.telefone = '';
-                // this.cliente.endereco = '';
-                // this.cliente.numero = '';
-                // this.cliente.bairro = '';
-                // this.cliente.cidade = '';
-                // this.cliente.estado = '';
-                
                 document.getElementById("formCadastrarCliente").reset();
-                console.log("to aqui")
                 this.exibeModalClienteSalvo = true;
         }
     }
