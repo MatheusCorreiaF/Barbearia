@@ -100,8 +100,9 @@ new Vue({
     },
     methods:
     {
-        salvarCliente: function () {
-            var cli = {/*objeto Cliente com valores default*/
+        salvarCliente: function ()
+        {
+            var cli = {
                 nome: this.cliente.nome,
                 dataNasc: this.cliente.dataNasc,
                 cpf: this.cliente.cpf,
@@ -123,6 +124,15 @@ new Vue({
                 db.save();
                 document.getElementById("formCadastrarCliente").reset();
                 this.exibeModalClienteSalvo = true;
+                this.cliente.nome = '';
+                this.cliente.dataNasc = '';
+                this.cliente.cpf = '';
+                this.cliente.telefone = '';
+                this.cliente.endereco = '';
+                this.cliente.numero = '';
+                this.cliente.bairro = '';
+                this.cliente.cidade = '';
+                this.cliente.estado = '';
         }
     }
 },

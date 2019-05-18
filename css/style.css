@@ -116,14 +116,20 @@ table th{
 table td{
     font-size: 12pt;
 }
-#colNome{
-    width: 52%;
+.colNome{
+    width: 300px;
+    float: left;
+    overflow: hidden;
 }
-#colTelefone{
-    width: 28%;
+.colTelefone{
+    width: 180px;
+    float: left;
+    overflow: hidden;
 }
-#colBotoes{
-    width: 20%;
+.colBotoes{
+    width: 150px;
+    float: left;
+    overflow: hidden;
 }
 
 .circulo-erro{
@@ -139,8 +145,7 @@ table thead {
   display: block;
 }
 
-/* Agora vamos definir o elemento tbody, para overflow: auto. Ativando assim as barras de rolagem. */
 table tbody {
   overflow: auto;
-  height: 300px;
+  height: 450px;
 }

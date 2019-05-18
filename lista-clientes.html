@@ -51,16 +51,16 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th></th>
+                <th class="colNome">Nome</th>
+                <th class="colTelefone">Telefone</th>
+                <th class="colBotoes" style="text-align: center">Opções</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="cliente in clientes">
-                <td id="colNome">{{cliente.nome}}</td>
-                <td id="colTelefone">{{cliente.telefone}}</td>
-                <td id="colBotoes"><button class="btn btn-primary btn-sm" type="button"
+                <td class="colNome">{{cliente.nome}}</td>
+                <td class="colTelefone">{{cliente.telefone}}</td>
+                <td class="colBotoes"><button class="btn btn-primary btn-sm" type="button"
                     @click="abrirModalEditarCliente(cliente)">Detalhes</button>
                   <button class="btn btn-danger btn-sm" type="button" @click="excluirCliente(cliente)">Excluir</button>
                 </td>

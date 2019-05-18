@@ -31,23 +31,27 @@ new Vue({
         },
         openModal: false
     },
-    ready: function ()/*função executada assim que carrega página*/ {
+    ready: function ()/*função executada assim que carrega página*/
+    {
         this.clientes = clientes.data;/*carregando lista de clientes do banco de dados*/
         console.log(this.clientes);
     },
     methods:/*local para declarar métodos*/
     {
-        abrirModalEditarCliente: function (clienteEditing) {
+        abrirModalEditarCliente: function (clienteEditing)
+        {
             this.openModal = true;
             this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
         },
 
-        salvarEdicaoCliente: function () {
+        salvarEdicaoCliente: function ()
+        {
             clientes.update(this.cliente);
             db.save();
             this.openModal = false;
         },
-        excluirCliente: function (clienteRemoving) {
+        excluirCliente: function (clienteRemoving)
+        {
             clientes.remove(clienteRemoving);
             db.save();
         }
