@@ -6,7 +6,7 @@ window.Vue = require('vue');
 new Vue({
     el: 'body',
     data: {
-         modall: false
+         modall: true
     },
     methods:{},
 })

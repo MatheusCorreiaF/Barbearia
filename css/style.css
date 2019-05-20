@@ -59,7 +59,7 @@
 }
 
 #formEditarCliente .form-nome{
-    width: 444px;
+    width: 475px;
     display: inline-block;
 }
 #formEditarCliente .form-cpf{
@@ -67,7 +67,7 @@
     display: inline-block;
 }
 #formEditarCliente .form-endereco{
-    width: 358px;
+    width: 380px;
     display: inline-block;
 }
 #formEditarCliente .form-telefone{
@@ -75,11 +75,11 @@
     display: inline-block;
 }
 #formEditarCliente .form-bairro{
-    width: 192px;
+    width: 208px;
     display: inline-block;
 }
 #formEditarCliente .form-numero{
-    width: 81px;
+    width: 90px;
     display: inline-block;
 }
 #formEditarCliente .select-estado{
@@ -87,11 +87,11 @@
     display: inline-block;
 }
 #formEditarCliente .form-cidade{
-    width: 173px;
+    width: 188px;
     display: inline-block;
 }
 #formEditarCliente .form-dataNasc{
-    width: 144px;
+    width: 174px;
     display: inline-block;
 }
 
@@ -136,6 +136,10 @@ table td{
     font-size: 20pt;
     color: red; 
 }
+.atencao-exclusao{
+    font-size: 20pt;
+    color: rgba(242, 196, 55, 1);
+}
 .check-sucesso{
     font-size: 20pt;
     color: green; 
@@ -148,4 +152,8 @@ table thead {
 table tbody {
   overflow: auto;
   height: 450px;
+}
+
+.modal-editar-cliente{/*largura ModalEditarCliente */
+    max-width: 510px;
 }

@@ -29,6 +29,8 @@ new Vue({
             cidade: '',
             estado: ''
         },
+        exibeModalExcluirCliente: false,
+        exibeModalEditarCliente: false,
         openModal: false
     },
     ready: function ()/*função executada assim que carrega página*/
@@ -40,7 +42,7 @@ new Vue({
     {
         abrirModalEditarCliente: function (clienteEditing)
         {
-            this.openModal = true;
+            this.exibeModalEditarCliente = true;
             this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
         },
 
@@ -50,10 +52,17 @@ new Vue({
             db.save();
             this.openModal = false;
         },
-        excluirCliente: function (clienteRemoving)
+        
+        abrirModalExcluirCliente: function (clienteEditing)
         {
-            clientes.remove(clienteRemoving);
-            db.save();
+            this.exibeModalExcluirCliente = true;
+            this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
+        },
+        
+        excluirCliente: function ()
+        {
+                clientes.remove(this.cliente);
+                db.save();
         }
     },
 })
