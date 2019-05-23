@@ -29,9 +29,21 @@ new Vue({
             cidade: '',
             estado: ''
         },
+        /*objeto Cliente com valores default que mantem os dados do cliente antes de decidir se as alterações serão salvas definitivamente*/
+        clienteAux: {
+            nome: '',
+            dataNasc: '',
+            cpf: '',
+            telefone: '',
+            endereco: '',
+            numero: '',
+            bairro: '',
+            cidade: '',
+            estado: '',
+        },
+        edita: true,
         exibeModalExcluirCliente: false,
-        exibeModalEditarCliente: false,
-        openModal: false
+        exibeModalEditarCliente: false
     },
     ready: function ()/*função executada assim que carrega página*/
     {
@@ -40,17 +52,39 @@ new Vue({
     },
     methods:/*local para declarar métodos*/
     {
-        abrirModalEditarCliente: function (clienteEditing)
+        salvarEdicaoCliente: function ()/*Uma vez aberto e liberado os campos do modal de edição, esse método salvará as alterções*/
         {
-            this.exibeModalEditarCliente = true;
-            this.cliente = clienteEditing;/*Objeto default recebe infos do Cliente a ser editado*/
-        },
-
-        salvarEdicaoCliente: function ()
-        {
+            this.edita = !this.edita;
             clientes.update(this.cliente);
             db.save();
-            this.openModal = false;
+        },
+        
+        cancelarEdicaoCliente: function ()/*cancela a edição e volta aos valores que estavam*/
+        {
+            this.cliente.nome = this.clienteAux.nome,
+            this.cliente.dataNasc = this.clienteAux.dataNasc,
+            this.cliente.cpf = this.clienteAux.cpf,
+            this.cliente.telefone = this.clienteAux.telefone,
+            this.cliente.endereco = this.clienteAux.endereco,
+            this.cliente.numero = this.clienteAux.numero,
+            this.cliente.bairro = this.clienteAux.bairro,
+            this.cliente.cidade = this.clienteAux.cidade,
+            this.cliente.estado = this.clienteAux.estado
+            this.edita = !this.edita;
+        },
+        /*habilita o modal a ser editado e cria uma cópia de segurança dos dados até que realmente sejam salvas as alterações */
+        editarCliente: function()
+        {
+            this.edita = !this.edita;
+            this.clienteAux.nome = this.cliente.nome,
+            this.clienteAux.dataNasc = this.cliente.dataNasc,
+            this.clienteAux.cpf = this.cliente.cpf,
+            this.clienteAux.telefone = this.cliente.telefone,
+            this.clienteAux.endereco = this.cliente.endereco,
+            this.clienteAux.numero = this.cliente.numero,
+            this.clienteAux.bairro = this.cliente.bairro,
+            this.clienteAux.cidade = this.cliente.cidade,
+            this.clienteAux.estado = this.cliente.estado
         },
         
         abrirModalExcluirCliente: function (clienteEditing)
